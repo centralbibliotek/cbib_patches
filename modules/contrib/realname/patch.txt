@@ -1,0 +1,19 @@
+commit a675aa1b6ffea9b8ae82ffefd04a2f71714db565
+Author: DDEV User <nobody@example.com>
+Date:   Mon Sep 4 10:52:22 2023 +0000
+
+    views_handler
+
+diff --git a/src/Controller/RealnameAutocompleteController.php b/src/Controller/RealnameAutocompleteController.php
+index cbf1577..1489561 100644
+--- a/src/Controller/RealnameAutocompleteController.php
++++ b/src/Controller/RealnameAutocompleteController.php
+@@ -21,7 +21,7 @@ class RealnameAutocompleteController extends EntityAutocompleteController {
+    * {@inheritdoc}
+    */
+   public function handleAutocomplete(Request $request, $target_type, $selection_handler, $selection_settings_key) {
+-    if ($target_type !== 'user' || !in_array($selection_handler, ['default:user', 'default'], TRUE)) {
++    if ($target_type !== 'user' || !in_array($selection_handler, ['default:user', 'default'], TRUE) || $selection_handler == 'views') {
+       return parent::handleAutocomplete($request, $target_type, $selection_handler, $selection_settings_key);
+     }
+ 
