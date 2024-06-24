@@ -1,0 +1,13 @@
+diff --git a/message_notify.module b/message_notify.module
+index 9a00dd7..b148e6a 100644
+--- a/message_notify.module
++++ b/message_notify.module
+@@ -13,7 +13,7 @@ use Drupal\Core\Entity\Entity\EntityViewMode;
+  * Set's the message subject and body as configured.
+  */
+ function message_notify_mail($key, &$message, $params) {
+-  $message['subject'] = $params['mail_subject'];
++  $message['subject'] = html_entity_decode($params['mail_subject']);
+   $message['body'][] = $params['mail_body'];
+ }
+ 
